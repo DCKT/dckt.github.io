@@ -1,0 +1,24 @@
+{
+  "name": "@phenomic/example-reason-react-app",
+  "refmt": 3,
+  "reason": {
+    "react-jsx": 2
+  },
+  "package-specs": {
+    "module": "es6"
+  },
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    }
+  ],
+  "bs-dependencies": [
+    "reason-react",
+    "bs-react-helmet",
+    "@phenomic/preset-react-app",
+    "@phenomic/plugin-renderer-react",
+    "@phenomic/api-client",
+    "bs-css"
+  ]
+}
