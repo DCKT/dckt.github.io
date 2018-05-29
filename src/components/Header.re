@@ -6,11 +6,12 @@ module Styles = {
   open Css;
   let root =
     style([
+      position(relative),
       display(`flex),
       justifyContent(center),
       alignItems(center),
       height(pct(98.5)),
-      backgroundImage(url("/images/h.jpg")),
+      backgroundImage(url("/images/header.jpg")),
       backgroundSize(cover),
       backgroundPosition(pct(50.), pct(50.)),
       selector(
@@ -29,6 +30,15 @@ module Styles = {
     ]);
   let headerContent = style([zIndex(1)]);
   let title = style([fontSize(px(32)), color(hex("fff"))]);
+  let picture =
+    style([
+      display(block),
+      margin2(~v=px(10), ~h=`auto),
+      maxWidth(px(300)),
+      borderRadius(pct(100.)),
+      border(px(5), solid, hex("fff")),
+      boxShadow(~x=px(0), ~y=px(2), rgba(24, 24, 24, 0.5)),
+    ]);
 };
 
 let make = _children => {
@@ -36,6 +46,11 @@ let make = _children => {
   render: _self =>
     <header className=Styles.root>
       <div className=Styles.headerContent>
+        <img
+          className=Styles.picture
+          src="/images/me.jpg"
+          alt="Picture of me eating a MelonPan"
+        />
         <h1 className=Styles.title> ("Thomas Deconinck" |> text) </h1>
       </div>
     </header>,

@@ -7,7 +7,7 @@ let make = (~posts) => {
   render: _self =>
     <Fragment>
       <Head>
-        <title> ("Hello world" |> text) </title>
+        <title> ("Thomas Deconinck - Développeur" |> text) </title>
         <meta name="description" content="Everything is awesome!" />
       </Head>
       <Header />
