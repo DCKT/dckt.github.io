@@ -6,9 +6,24 @@ html,
 body,
 #PhenomicRoot {
   height: 100%;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
+  color: #242424;
 }
 
 body {
   background: rgb(230, 230, 230);
+}
+
+.dck-Hello {
+  max-width: 600px;
+  margin: auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.dck-Hello p {
+  font-size: 1.125em;
+  text-align: justify;
+  line-height: 24px;
+  margin-bottom: 20px;
 }

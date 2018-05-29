@@ -18,8 +18,11 @@ let make = (~informations, ~experiences) => {
         | Errored => <ErrorPage />
         | Idle(post) =>
           <Section>
-            <h1> (post##title |> text) </h1>
-            <PhenomicPresetReactApp.BodyRenderer body=post##body />
+            <div className="dck-Hello">
+              <SectionTitle value="Bonjour !" />
+              <PhenomicPresetReactApp.BodyRenderer body=post##body />
+              <Socials />
+            </div>
           </Section>
         }
       )
@@ -28,22 +31,21 @@ let make = (~informations, ~experiences) => {
         | Inactive
         | Loading => "Loading ..." |> text
         | Errored => "An error occured" |> text
-        | Idle(posts) =>
-          let postsList = posts##list |> Array.to_list;
-          <div>
-            <ul>
-              (
-                postsList
-                |> List.map(item =>
-                     <li key=item##id>
-                       (item##title |> text)
-                       (item##location |> text)
-                     </li>
-                   )
-                |> list
-              )
-            </ul>
-          </div>;
+        | Idle(xp) =>
+          let xpList = xp##list |> Array.to_list;
+          <Section dark=true>
+            <SectionTitle value="Expériences" />
+            (
+              xpList
+              |> List.mapi((i, item) =>
+                   <li key=(string_of_int(i))>
+                     (item##title |> text)
+                     (item##location |> text)
+                   </li>
+                 )
+              |> list
+            )
+          </Section>;
         }
       )
     </Fragment>,
