@@ -64,14 +64,13 @@ let queries = props => {
     );
   let experiences =
     PhenomicPresetReactApp.query(
-      PaginatedList({
+      List({
         path: "content/experiences",
         by: Some("default"),
         value: None,
         order: None,
         sort: None,
-        limit: Some(4),
-        after: Some(props##params##after),
+        limit: None,
       }),
     );
   {"informations": informations, "experiences": experiences};
