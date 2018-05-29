@@ -29,7 +29,13 @@ module Styles = {
       ),
     ]);
   let headerContent = style([zIndex(1)]);
-  let title = style([fontSize(px(32)), color(hex("fff"))]);
+  let title =
+    style([
+      fontSize(px(32)),
+      color(hex("fff")),
+      textAlign(center),
+      fontWeight(300),
+    ]);
   let picture =
     style([
       display(block),
@@ -39,6 +45,14 @@ module Styles = {
       border(px(5), solid, hex("fff")),
       boxShadow(~x=px(0), ~y=px(2), rgba(24, 24, 24, 0.5)),
     ]);
+  let subtitle =
+    style([
+      display(block),
+      fontWeight(600),
+      marginTop(px(10)),
+      fontStyle(italic),
+    ]);
+  let headerTitle = style([marginTop(px(20))]);
 };
 
 let make = _children => {
@@ -51,7 +65,14 @@ let make = _children => {
           src="/images/me.jpg"
           alt="Picture of me eating a MelonPan"
         />
-        <h1 className=Styles.title> ("Thomas Deconinck" |> text) </h1>
+        <div className=Styles.headerTitle>
+          <h1 className=Styles.title>
+            ("Thomas Deconinck" |> text)
+            <strong className=Styles.subtitle>
+              ("Développeur JavaScript" |> text)
+            </strong>
+          </h1>
+        </div>
       </div>
     </header>,
 };

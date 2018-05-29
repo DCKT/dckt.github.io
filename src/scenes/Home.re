@@ -2,18 +2,29 @@ open Helpers;
 
 let component = ReasonReact.statelessComponent("Home");
 
-let make = (~posts) => {
+let make = (~informations, ~experiences) => {
   ...component,
   render: _self =>
     <Fragment>
       <Head>
-        <title> ("Thomas Deconinck - Développeur" |> text) </title>
+        <title> ("Thomas Deconinck - Développeur JavaScript" |> text) </title>
         <meta name="description" content="Everything is awesome!" />
       </Head>
       <Header />
-      <h1> ("Home" |> text) </h1>
       (
-        switch ((posts: Types.posts)) {
+        switch ((informations: Types.postNode)) {
+        | Inactive
+        | Loading => "Loading ..." |> text
+        | Errored => <ErrorPage />
+        | Idle(post) =>
+          <Section>
+            <h1> (post##title |> text) </h1>
+            <PhenomicPresetReactApp.BodyRenderer body=post##body />
+          </Section>
+        }
+      )
+      (
+        switch ((experiences: Types.experiences)) {
         | Inactive
         | Loading => "Loading ..." |> text
         | Errored => "An error occured" |> text
@@ -25,40 +36,13 @@ let make = (~posts) => {
                 postsList
                 |> List.map(item =>
                      <li key=item##id>
-                       <PhenomicPresetReactApp.Link
-                         href=("/blog/" ++ item##id ++ "/")>
-                         (item##title |> text)
-                       </PhenomicPresetReactApp.Link>
+                       (item##title |> text)
+                       (item##location |> text)
                      </li>
                    )
                 |> list
               )
             </ul>
-            <div>
-              (
-                switch (posts##previous |> Js.toOption) {
-                | Some(previous) =>
-                  <PhenomicPresetReactApp.Link
-                    href=(
-                      Js.to_bool(posts##previousPageIsFirst) ?
-                        "/" : "/after/" ++ previous ++ "/"
-                    )>
-                    ("Newer posts" |> text)
-                  </PhenomicPresetReactApp.Link>
-                | None => nothing
-                }
-              )
-              (" " |> text)
-              (
-                switch (posts##next |> Js.toOption) {
-                | Some(next) =>
-                  <PhenomicPresetReactApp.Link href=("/after/" ++ next ++ "/")>
-                    ("Older posts" |> text)
-                  </PhenomicPresetReactApp.Link>
-                | None => nothing
-                }
-              )
-            </div>
           </div>;
         }
       )
@@ -67,21 +51,28 @@ let make = (~posts) => {
 
 let jsComponent =
   ReasonReact.wrapReasonForJs(~component, jsProps =>
-    make(~posts=PhenomicPresetReactApp.jsEdge(jsProps##posts))
+    make(
+      ~informations=PhenomicPresetReactApp.jsEdge(jsProps##informations),
+      ~experiences=PhenomicPresetReactApp.jsEdge(jsProps##experiences),
+    )
   );
 
 let queries = props => {
-  let posts =
+  let informations =
+    PhenomicPresetReactApp.query(
+      Item({path: "content/home", id: "informations"}),
+    );
+  let experiences =
     PhenomicPresetReactApp.query(
       PaginatedList({
-        path: "content/posts",
+        path: "content/experiences",
         by: Some("default"),
         value: None,
         order: None,
         sort: None,
-        limit: Some(2),
+        limit: Some(4),
         after: Some(props##params##after),
       }),
     );
-  {"posts": posts};
+  {"informations": informations, "experiences": experiences};
 };
