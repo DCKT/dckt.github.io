@@ -35,16 +35,15 @@ let make = (~informations, ~experiences) => {
           let xpList = xp##list |> Array.to_list;
           <Section dark=true>
             <SectionTitle value="Expériences" />
-            (
-              xpList
-              |> List.mapi((i, item) =>
-                   <li key=(string_of_int(i))>
-                     (item##title |> text)
-                     (item##location |> text)
-                   </li>
-                 )
-              |> list
-            )
+            <section id="cd-timeline" className="cd-container">
+              (
+                xpList
+                |> List.mapi((i, item) =>
+                     <TimelineItem key=(string_of_int(i)) experience=item />
+                   )
+                |> list
+              )
+            </section>
           </Section>;
         }
       )

@@ -15,6 +15,9 @@ type experiencePost = {
   "title": string,
   "description": string,
   "location": string,
+  "company": string,
+  "date": string,
+  "technologies": string,
 };
 
 type post = {
