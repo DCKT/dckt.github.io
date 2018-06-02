@@ -1,0 +1,13 @@
+---
+technologies:
+  - HTML5
+  - CSS3
+  - JavaScript
+  - React
+  - React Native
+  - Node.js
+  - Express
+  - Socket.io
+  - Webpack
+  - Jest
+---

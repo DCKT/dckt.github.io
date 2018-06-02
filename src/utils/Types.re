@@ -17,7 +17,16 @@ type experiencePost = {
   "location": string,
   "company": string,
   "date": string,
-  "technologies": string,
+  "technologies": array(string),
+};
+
+type qualificationPost = {
+  .
+  "id": string,
+  "title": string,
+  "description": string,
+  "location": string,
+  "date": string,
 };
 
 type post = {
@@ -33,3 +42,12 @@ type experiences =
   PhenomicPresetReactApp.edge(
     PhenomicPresetReactApp.jsNodeList(experiencePost),
   );
+
+type qualifications =
+  PhenomicPresetReactApp.edge(
+    PhenomicPresetReactApp.jsNodeList(qualificationPost),
+  );
+
+type timelineItem =
+  | ExpPost(experiencePost)
+  | QuaPost(qualificationPost);

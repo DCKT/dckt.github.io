@@ -1,6 +1,5 @@
 ---
 title: "Informations"
-date: "2017-01-05"
 ---
 
 Je m'appelle Thomas Deconinck, j'ai 25 ans et je suis un passionné d'informatique.
