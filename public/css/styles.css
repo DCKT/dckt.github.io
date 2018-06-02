@@ -289,6 +289,8 @@ body {
 
 .Works-itemTech {
   color: #303e49;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .Works-itemTitle + .Works-itemPlace:before {

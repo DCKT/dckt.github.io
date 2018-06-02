@@ -11,6 +11,7 @@ module Styles = {
       backgroundColor(hex("75ce66")),
       color(hex("fff")),
       borderRadius(px(2)),
+      marginBottom(px(5)),
     ]);
 };
 
