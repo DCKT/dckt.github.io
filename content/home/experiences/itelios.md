@@ -7,4 +7,7 @@ description: "Stage en alternance (jeudi et vendredi), résolution de bugs en TM
 technologies: 
   - HTML5
   - CSS3
+  - JavaScript
+  - jQuery
+  - Demandware
 ---

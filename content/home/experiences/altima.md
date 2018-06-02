@@ -7,4 +7,11 @@ description: "Intégration de maquette, développement de l'interface et expéri
 technologies: 
   - HTML5
   - CSS3
+  - JavaScript
+  - jQuery
+  - Backbone
+  - React
+  - Gulp
+  - Bower
+  - Webpack
 ---

@@ -7,4 +7,7 @@ description: "Développement d’application web pour Bulle d’hair (e-commerce
 technologies: 
   - HTML5
   - CSS3
+  - JavaScript
+  - Ember.js
+  - Ruby on Rails
 ---

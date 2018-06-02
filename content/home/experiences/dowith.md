@@ -7,4 +7,6 @@ description: "Amélioration de la v1 du site sous Symfony 1.4, préparation de l
 technologies: 
   - HTML5
   - CSS3
+  - JavaScript
+  - jQuery
 ---
