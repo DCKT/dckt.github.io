@@ -15,12 +15,21 @@ module Styles = {
     ]);
 };
 
-let make = (~item: Types.timelineItem, _children) => {
+type icon =
+  | Code
+  | Graduation;
+
+let make = (~item: Types.timelineItem, ~icon: icon, _children) => {
   ...component,
   render: _self =>
     <div className="cd-timeline-block">
       <div className="cd-timeline-img cd-picture">
-        <img src="images/code.svg" alt="Picture" />
+        (
+          switch (icon) {
+          | Code => <img src="images/code.svg" alt="Code" />
+          | Graduation => <img src="images/graduation.svg" alt="Graduation" />
+          }
+        )
       </div>
       <div className="cd-timeline-content">
         <h2>

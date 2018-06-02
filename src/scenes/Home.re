@@ -44,6 +44,7 @@ let make = (~informations, ~experiences, ~qualifications, ~technologies) => {
                      <TimelineItem
                        key=(string_of_int(i))
                        item=(ExpPost(item))
+                       icon=Code
                      />
                    )
                 |> list
@@ -79,8 +80,8 @@ let make = (~informations, ~experiences, ~qualifications, ~technologies) => {
         | Errored => "An error occured" |> text
         | Idle(qualification) =>
           <Section dark=true>
-            <SectionTitle value={js|Expériences|js} />
-            <section id="cd-timeline" className="cd-container">
+            <SectionTitle value={js|Diplômes|js} />
+            <section id="cd-timeline" className="cd-container Qualifications">
               (
                 qualification##list
                 |> Array.to_list
@@ -88,6 +89,7 @@ let make = (~informations, ~experiences, ~qualifications, ~technologies) => {
                      <TimelineItem
                        key=(string_of_int(i))
                        item=(QuaPost(item))
+                       icon=Graduation
                      />
                    )
                 |> list

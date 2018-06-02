@@ -300,3 +300,14 @@ body {
   color: #343434;
   font-weight: 300;
 }
+
+.Qualifications .cd-timeline-img.cd-picture {
+  background: #c03b44;
+}
+
+.Qualifications .cd-timeline-img img {
+  width: 45px;
+  height: 45px;
+  margin-top: -20px;
+  margin-left: -23px;
+}
