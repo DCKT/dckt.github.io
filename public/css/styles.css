@@ -290,3 +290,11 @@ body {
 .Works-itemTech {
   color: #303e49;
 }
+
+.Works-itemTitle + .Works-itemPlace:before {
+  content: " -";
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #343434;
+  font-weight: 300;
+}

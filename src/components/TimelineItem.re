@@ -25,8 +25,10 @@ let make = (~item: Types.timelineItem, _children) => {
         <h2>
           (
             switch (item) {
-            | QuaPost(t) => t##title |> text
-            | ExpPost(t) => t##title |> text
+            | QuaPost(t) =>
+              <span className="Works-itemTitle"> (t##title |> text) </span>
+            | ExpPost(t) =>
+              <span className="Works-itemTitle"> (t##title |> text) </span>
             }
           )
           (
@@ -38,9 +40,10 @@ let make = (~item: Types.timelineItem, _children) => {
           )
           (
             switch (item) {
-            | QuaPost(_) => nothing
+            | QuaPost(t) =>
+              <span className="Works-itemPlace"> (t##location |> text) </span>
             | ExpPost(t) =>
-              <span className="Works-itemCompany"> (t##company |> text) </span>
+              <span className="Works-itemPlace"> (t##location |> text) </span>
             }
           )
         </h2>
