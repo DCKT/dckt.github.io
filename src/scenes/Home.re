@@ -7,7 +7,9 @@ let make = (~informations, ~experiences, ~qualifications, ~technologies) => {
   render: _self =>
     <Fragment>
       <Head>
-        <title> ("Thomas Deconinck - Développeur JavaScript" |> text) </title>
+        <title>
+          ({js|Thomas Deconinck - Développeur JavaScript|js} |> text)
+        </title>
         <meta name="description" content="Everything is awesome!" />
       </Head>
       <Header />
@@ -34,7 +36,7 @@ let make = (~informations, ~experiences, ~qualifications, ~technologies) => {
         | Idle(xp) =>
           let xpList = xp##list |> Array.to_list;
           <Section dark=true>
-            <SectionTitle value="Expériences" />
+            <SectionTitle value={js|Expériences|js} />
             <section id="cd-timeline" className="cd-container">
               (
                 xpList
@@ -57,7 +59,7 @@ let make = (~informations, ~experiences, ~qualifications, ~technologies) => {
         | Errored => "An error occured" |> text
         | Idle(technologies) =>
           <Section>
-            <SectionTitle value="Compétences" />
+            <SectionTitle value={js|Compétences|js} />
             <Container>
               (
                 technologies##list
@@ -77,7 +79,7 @@ let make = (~informations, ~experiences, ~qualifications, ~technologies) => {
         | Errored => "An error occured" |> text
         | Idle(qualification) =>
           <Section dark=true>
-            <SectionTitle value="Expériences" />
+            <SectionTitle value={js|Expériences|js} />
             <section id="cd-timeline" className="cd-container">
               (
                 qualification##list
