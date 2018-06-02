@@ -1,5 +1,5 @@
 ---
-technologies:
+list:
   - HTML5
   - CSS3
   - JavaScript
@@ -10,4 +10,6 @@ technologies:
   - Socket.io
   - Webpack
   - Jest
+  - Electron
+  - Gulp
 ---

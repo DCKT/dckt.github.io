@@ -2,7 +2,7 @@ open Helpers;
 
 let component = ReasonReact.statelessComponent("Home");
 
-let make = (~informations, ~experiences, ~qualifications) => {
+let make = (~informations, ~experiences, ~qualifications, ~technologies) => {
   ...component,
   render: _self =>
     <Fragment>
@@ -51,6 +51,26 @@ let make = (~informations, ~experiences, ~qualifications) => {
         }
       )
       (
+        switch ((technologies: Types.technologieNode)) {
+        | Inactive
+        | Loading => "Loading ..." |> text
+        | Errored => "An error occured" |> text
+        | Idle(technologies) =>
+          <Section>
+            <SectionTitle value="Compétences" />
+            <Container>
+              (
+                technologies##list
+                |> Array.mapi((i, value) =>
+                     <Tag key=(string_of_int(i)) value color="#e66815" />
+                   )
+                |> ReasonReact.arrayToElement
+              )
+            </Container>
+          </Section>
+        }
+      )
+      (
         switch ((qualifications: Types.qualifications)) {
         | Inactive
         | Loading => "Loading ..." |> text
@@ -83,8 +103,19 @@ let jsComponent =
       ~informations=PhenomicPresetReactApp.jsEdge(jsProps##informations),
       ~experiences=PhenomicPresetReactApp.jsEdge(jsProps##experiences),
       ~qualifications=PhenomicPresetReactApp.jsEdge(jsProps##qualifications),
+      ~technologies=PhenomicPresetReactApp.jsEdge(jsProps##technologies),
     )
   );
+
+let defaultQueryList: string => PhenomicPresetReactApp.listConfig =
+  (path: string) => {
+    path,
+    by: Some("default"),
+    value: None,
+    order: None,
+    sort: None,
+    limit: None,
+  };
 
 let queries = props => {
   let informations =
@@ -93,29 +124,20 @@ let queries = props => {
     );
   let experiences =
     PhenomicPresetReactApp.query(
-      List({
-        path: "content/home/experiences",
-        by: Some("default"),
-        value: None,
-        order: None,
-        sort: None,
-        limit: None,
-      }),
+      List(defaultQueryList("content/home/experiences")),
     );
   let qualifications =
     PhenomicPresetReactApp.query(
-      List({
-        path: "content/home/qualifications",
-        by: Some("default"),
-        value: None,
-        order: None,
-        sort: None,
-        limit: None,
-      }),
+      List(defaultQueryList("content/home/qualifications")),
+    );
+  let technologies =
+    PhenomicPresetReactApp.query(
+      Item({path: "content/home", id: "technologies"}),
     );
   {
     "informations": informations,
     "experiences": experiences,
     "qualifications": qualifications,
+    "technologies": technologies,
   };
 };

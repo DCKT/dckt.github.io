@@ -38,6 +38,14 @@ type post = {
 
 type postNode = PhenomicPresetReactApp.edge(post);
 
+type technologie = {
+  .
+  "id": string,
+  "list": array(string),
+};
+
+type technologieNode = PhenomicPresetReactApp.edge(technologie);
+
 type experiences =
   PhenomicPresetReactApp.edge(
     PhenomicPresetReactApp.jsNodeList(experiencePost),
