@@ -9,4 +9,6 @@ technologies:
   - CSS3
   - JavaScript
   - jQuery
+  - Bootstrap
+  - Symfony 2
 ---

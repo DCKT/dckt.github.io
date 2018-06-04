@@ -2,7 +2,8 @@ open Helpers;
 
 let component = ReasonReact.statelessComponent("Home");
 
-let make = (~informations, ~experiences, ~qualifications, ~technologies) => {
+let make =
+    (~informations, ~experiences, ~qualifications, ~technologies, ~contact) => {
   ...component,
   render: _self =>
     <Fragment>
@@ -98,6 +99,20 @@ let make = (~informations, ~experiences, ~qualifications, ~technologies) => {
           </Section>
         }
       )
+      (
+        switch ((contact: Types.postNode)) {
+        | Inactive
+        | Loading => "Loading ..." |> text
+        | Errored => <ErrorPage />
+        | Idle(post) =>
+          <Section>
+            <div className="dck-Hello">
+              <SectionTitle value="Contact" />
+              <PhenomicPresetReactApp.BodyRenderer body=post##body />
+            </div>
+          </Section>
+        }
+      )
     </Fragment>,
 };
 
@@ -108,6 +123,7 @@ let jsComponent =
       ~experiences=PhenomicPresetReactApp.jsEdge(jsProps##experiences),
       ~qualifications=PhenomicPresetReactApp.jsEdge(jsProps##qualifications),
       ~technologies=PhenomicPresetReactApp.jsEdge(jsProps##technologies),
+      ~contact=PhenomicPresetReactApp.jsEdge(jsProps##contact),
     )
   );
 
@@ -138,10 +154,15 @@ let queries = props => {
     PhenomicPresetReactApp.query(
       Item({path: "content/home", id: "technologies"}),
     );
+  let contact =
+    PhenomicPresetReactApp.query(
+      Item({path: "content/home", id: "contact"}),
+    );
   {
     "informations": informations,
     "experiences": experiences,
     "qualifications": qualifications,
     "technologies": technologies,
+    "contact": contact,
   };
 };

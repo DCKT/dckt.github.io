@@ -8,6 +8,8 @@ technologies:
   - HTML5
   - CSS3
   - JavaScript
+  - jQuery
   - Ember.js
+  - Ruby
   - Ruby on Rails
 ---

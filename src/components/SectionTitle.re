@@ -8,7 +8,7 @@ module Styles = {
     style([
       fontSize(px(40)),
       fontWeight(700),
-      margin2(~v=px(30), ~h=px(0)),
+      margin2(~v=px(50), ~h=px(0)),
       textAlign(center),
     ]);
 };

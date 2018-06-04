@@ -69,7 +69,7 @@ let make = _children => {
           <h1 className=Styles.title>
             ("Thomas Deconinck" |> text)
             <strong className=Styles.subtitle>
-              ("Développeur JavaScript" |> text)
+              ({js|Développeur JavaScript|js} |> text)
             </strong>
           </h1>
         </div>

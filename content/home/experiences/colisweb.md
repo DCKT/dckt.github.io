@@ -9,4 +9,6 @@ technologies:
   - React Native
   - Jest
   - CSS-in-JS
+  - ReasonML
+  - FlowType
 ---
