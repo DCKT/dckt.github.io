@@ -1,3 +1,5 @@
+open BsReactNative;
+
 open Helpers;
 
 let component = "Header" |> ReasonReact.statelessComponent;
@@ -6,7 +8,6 @@ module Styles = {
   open Css;
   let root =
     style([
-      position(relative),
       display(`flex),
       justifyContent(center),
       alignItems(center),
@@ -29,39 +30,31 @@ module Styles = {
       ),
     ]);
   let headerContent = style([zIndex(1)]);
-  let title =
-    style([
-      fontSize(px(32)),
-      color(hex("fff")),
-      textAlign(center),
-      fontWeight(300),
-    ]);
-  let picture =
-    style([
-      display(block),
-      margin2(~v=px(10), ~h=`auto),
-      maxWidth(px(300)),
-      borderRadius(pct(100.)),
-      border(px(5), solid, hex("fff")),
-      boxShadow(~x=px(0), ~y=px(2), rgba(24, 24, 24, 0.5)),
-    ]);
-  let subtitle =
-    style([
-      display(block),
-      fontWeight(600),
-      marginTop(px(10)),
-      fontStyle(italic),
-    ]);
-  let headerTitle = style([marginTop(px(20))]);
 };
+
+let styles =
+  StyleSheet.create(
+    Style.(
+      {
+        "root":
+          style([
+            flex(1.0),
+            justifyContent(Center),
+            alignItems(Center),
+            height(Pct(98.5)),
+            paddingVertical(Pt(100.)),
+          ]),
+      }
+    ),
+  );
 
 let make = _children => {
   ...component,
   render: _self =>
-    <header className=Styles.root>
-      <div className=Styles.headerContent>
-        <HeaderPicture />
-        <HeaderTitle />
-      </div>
-    </header>,
+    <ImageBackground
+      style=styles##root
+      source=(URI(Image.(imageURISource(~uri="/images/header.jpg", ()))))>
+      <HeaderPicture />
+      <HeaderTitle />
+    </ImageBackground>,
 };

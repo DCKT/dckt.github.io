@@ -9,7 +9,7 @@ type posts =
     PhenomicPresetReactApp.jsNodeList(partialPost),
   );
 
-type experiencePost = {
+type experience = {
   .
   "id": string,
   "title": string,
@@ -20,9 +20,8 @@ type experiencePost = {
   "technologies": array(string),
 };
 
-type qualificationPost = {
+type qualification = {
   .
-  "id": string,
   "title": string,
   "description": string,
   "location": string,
@@ -38,24 +37,18 @@ type post = {
 
 type postNode = PhenomicPresetReactApp.edge(post);
 
-type technologie = {
+type informations = {
   .
   "id": string,
-  "list": array(string),
+  "title": string,
+  "technologies": array(string),
+  "qualifications": array(qualification),
+  "experiences": array(experience),
+  "body": PhenomicPresetReactApp.BodyRenderer.jsBody,
 };
 
-type technologieNode = PhenomicPresetReactApp.edge(technologie);
-
-type experiences =
-  PhenomicPresetReactApp.edge(
-    PhenomicPresetReactApp.jsNodeList(experiencePost),
-  );
-
-type qualifications =
-  PhenomicPresetReactApp.edge(
-    PhenomicPresetReactApp.jsNodeList(qualificationPost),
-  );
+type informationsNode = PhenomicPresetReactApp.edge(informations);
 
 type timelineItem =
-  | ExpPost(experiencePost)
-  | QuaPost(qualificationPost);
+  | ExpPost(experience)
+  | QuaPost(qualification);

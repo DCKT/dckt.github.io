@@ -2,8 +2,7 @@ open Helpers;
 
 let component = ReasonReact.statelessComponent("Home");
 
-let make =
-    (~informations, ~experiences, ~qualifications, ~technologies, ~contact) => {
+let make = (~informations) => {
   ...component,
   render: _self =>
     <Fragment>
@@ -15,102 +14,80 @@ let make =
       </Head>
       <Header />
       (
-        switch ((informations: Types.postNode)) {
+        switch ((informations: Types.informationsNode)) {
         | Inactive
-        | Loading => "Loading ..." |> text
-        | Errored => <ErrorPage />
-        | Idle(post) =>
-          <Section>
-            <div className="dck-Hello">
-              <SectionTitle value="Bonjour !" />
-              <PhenomicPresetReactApp.BodyRenderer body=post##body />
-              <Socials />
-            </div>
-          </Section>
-        }
-      )
-      (
-        switch ((experiences: Types.experiences)) {
-        | Inactive
-        | Loading => "Loading ..." |> text
+        | Loading => nothing
         | Errored => "An error occured" |> text
-        | Idle(xp) =>
-          let xpList = xp##list |> Array.to_list;
-          <Section dark=true>
-            <SectionTitle value={js|Expériences|js} />
-            <section id="cd-timeline" className="cd-container">
-              (
-                xpList
-                |> List.mapi((i, item) =>
-                     <TimelineItem
-                       key=(string_of_int(i))
-                       item=(ExpPost(item))
-                       icon=Code
-                     />
-                   )
-                |> list
-              )
-            </section>
-          </Section>;
-        }
-      )
-      (
-        switch ((technologies: Types.technologieNode)) {
-        | Inactive
-        | Loading => "Loading ..." |> text
-        | Errored => "An error occured" |> text
-        | Idle(technologies) =>
-          <Section>
-            <SectionTitle value={js|Compétences|js} />
-            <Container>
-              (
-                technologies##list
-                |> Array.mapi((i, value) =>
-                     <Tag key=(string_of_int(i)) value color="#e66815" />
-                   )
-                |> ReasonReact.arrayToElement
-              )
-            </Container>
-          </Section>
-        }
-      )
-      (
-        switch ((qualifications: Types.qualifications)) {
-        | Inactive
-        | Loading => "Loading ..." |> text
-        | Errored => "An error occured" |> text
-        | Idle(qualification) =>
-          <Section dark=true>
-            <SectionTitle value={js|Diplômes|js} />
-            <section id="cd-timeline" className="cd-container Qualifications">
-              (
-                qualification##list
-                |> Array.to_list
-                |> List.mapi((i, item) =>
-                     <TimelineItem
-                       key=(string_of_int(i))
-                       item=(QuaPost(item))
-                       icon=Graduation
-                     />
-                   )
-                |> list
-              )
-            </section>
-          </Section>
-        }
-      )
-      (
-        switch ((contact: Types.postNode)) {
-        | Inactive
-        | Loading => "Loading ..." |> text
-        | Errored => <ErrorPage />
-        | Idle(post) =>
-          <Section>
-            <div className="dck-Hello">
-              <SectionTitle value="Contact" />
-              <PhenomicPresetReactApp.BodyRenderer body=post##body />
-            </div>
-          </Section>
+        | Idle(infos) =>
+          <Fragment>
+            <Section>
+              <div className="dck-Hello">
+                <SectionTitle value="Bonjour !" />
+                <PhenomicPresetReactApp.BodyRenderer body=infos##body />
+                <Socials />
+              </div>
+            </Section>
+            <Section dark=true>
+              <SectionTitle value={js|Expériences|js} />
+              <section id="cd-timeline" className="cd-container">
+                (
+                  infos##experiences
+                  |> Array.mapi((i, item) =>
+                       <TimelineItem
+                         key=(string_of_int(i))
+                         item=(ExpPost(item))
+                         icon=Code
+                       />
+                     )
+                  |> ReasonReact.arrayToElement
+                )
+              </section>
+            </Section>
+            <Section>
+              <SectionTitle value={js|Compétences|js} />
+              <Container>
+                (
+                  infos##technologies
+                  |> Array.mapi((i, value) =>
+                       <Tag key=(string_of_int(i)) value color="#e66815" />
+                     )
+                  |> ReasonReact.arrayToElement
+                )
+              </Container>
+            </Section>
+            <Section dark=true>
+              <SectionTitle value={js|Diplômes|js} />
+              <section
+                id="cd-timeline" className="cd-container Qualifications">
+                (
+                  infos##qualifications
+                  |> Array.to_list
+                  |> List.mapi((i, item) =>
+                       <TimelineItem
+                         key=(string_of_int(i))
+                         item=(QuaPost(item))
+                         icon=Graduation
+                       />
+                     )
+                  |> list
+                )
+              </section>
+            </Section>
+            <Section>
+              <div className="dck-Hello">
+                <SectionTitle value="Contact" />
+                <p>
+                  (
+                    {js|Besoin d'aide sur votre projet ? N'hésitez pas à me laisser un message, vous obtiendrez toujours une réponse dans les 24 heures !|js}
+                    |> text
+                  )
+                </p>
+                <a className="text-orange" href="mailto:dck@outlook.fr">
+                  ("Envoyez un mail" |> text)
+                </a>
+              </div>
+            </Section>
+          </Fragment>
         }
       )
     </Fragment>,
@@ -118,13 +95,7 @@ let make =
 
 let jsComponent =
   ReasonReact.wrapReasonForJs(~component, jsProps =>
-    make(
-      ~informations=PhenomicPresetReactApp.jsEdge(jsProps##informations),
-      ~experiences=PhenomicPresetReactApp.jsEdge(jsProps##experiences),
-      ~qualifications=PhenomicPresetReactApp.jsEdge(jsProps##qualifications),
-      ~technologies=PhenomicPresetReactApp.jsEdge(jsProps##technologies),
-      ~contact=PhenomicPresetReactApp.jsEdge(jsProps##contact),
-    )
+    make(~informations=PhenomicPresetReactApp.jsEdge(jsProps##informations))
   );
 
 let defaultQueryList: string => PhenomicPresetReactApp.listConfig =
@@ -142,27 +113,5 @@ let queries = props => {
     PhenomicPresetReactApp.query(
       Item({path: "content/home", id: "informations"}),
     );
-  let experiences =
-    PhenomicPresetReactApp.query(
-      List(defaultQueryList("content/home/experiences")),
-    );
-  let qualifications =
-    PhenomicPresetReactApp.query(
-      List(defaultQueryList("content/home/qualifications")),
-    );
-  let technologies =
-    PhenomicPresetReactApp.query(
-      Item({path: "content/home", id: "technologies"}),
-    );
-  let contact =
-    PhenomicPresetReactApp.query(
-      Item({path: "content/home", id: "contact"}),
-    );
-  {
-    "informations": informations,
-    "experiences": experiences,
-    "qualifications": qualifications,
-    "technologies": technologies,
-    "contact": contact,
-  };
+  {"informations": informations};
 };
