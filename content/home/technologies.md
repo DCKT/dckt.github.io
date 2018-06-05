@@ -5,6 +5,7 @@ list:
   - JavaScript
   - React
   - React Native
+  - React Native Web
   - Node.js
   - Express
   - Socket.io

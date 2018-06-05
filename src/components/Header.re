@@ -60,19 +60,8 @@ let make = _children => {
   render: _self =>
     <header className=Styles.root>
       <div className=Styles.headerContent>
-        <img
-          className=Styles.picture
-          src="/images/me.jpg"
-          alt="Picture of me eating a MelonPan"
-        />
-        <div className=Styles.headerTitle>
-          <h1 className=Styles.title>
-            ("Thomas Deconinck" |> text)
-            <strong className=Styles.subtitle>
-              ({js|Développeur JavaScript|js} |> text)
-            </strong>
-          </h1>
-        </div>
+        <HeaderPicture />
+        <HeaderTitle />
       </div>
     </header>,
 };

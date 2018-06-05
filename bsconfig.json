@@ -16,6 +16,7 @@
   "bs-dependencies": [
     "reason-react",
     "bs-react-helmet",
+    "bs-react-native",
     "@phenomic/preset-react-app",
     "@phenomic/plugin-renderer-react",
     "@phenomic/api-client",
