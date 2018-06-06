@@ -15,6 +15,7 @@ let styles =
             color(String("#fff")),
             textAlign(Center),
             fontWeight(`_300),
+            fontFamily("Ubuntu"),
           ]),
         "subtitle":
           style([
