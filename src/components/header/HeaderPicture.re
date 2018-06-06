@@ -8,6 +8,8 @@ let styles =
       {
         "image":
           style([
+            width(Pt(300.)),
+            height(Pt(300.)),
             borderWidth(5.),
             borderColor(String("#fff")),
             borderRadius(300.),

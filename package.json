@@ -5,7 +5,9 @@
     "@phenomic/cli": "^1.0.0-beta.3",
     "@phenomic/core": "^1.0.0-beta.3",
     "@phenomic/preset-react-app": "^1.0.0-beta.3",
-    "babel-plugin-react-native-web": "0.8.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-react-native-web": "^0.8.2",
+    "babel-preset-react-native": "^4.0.0",
     "bs-platform": "^2.2.0",
     "bs-react-helmet": "^0.2.1",
     "eslint-config-dck": "1.0.4",
@@ -27,19 +29,21 @@
     "start:web:js": "phenomic start",
     "start:web:reason": "yarn start:reason",
     "build:web": "yarn reason:compile && phenomic build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build:web && gh-pages -d dist"
   },
   "phenomic": {
-    "presets": [
-      "@phenomic/preset-react-app"
-    ]
+    "presets": ["@phenomic/preset-react-app"]
   },
   "version": "1.0.0-beta.3",
   "dependencies": {
     "bs-css": "^6.7.0",
     "bs-react-native": "0.8.0",
+    "matomo-tracker": "^2.2.0",
     "react-art": "16.4.0",
-    "react-native-web": "0.8.0",
+    "react-native-web": "0.6.1",
     "reset-css": "^3.0.0"
+  },
+  "jest": {
+    "preset": "react-native"
   }
 }

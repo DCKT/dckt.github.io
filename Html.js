@@ -14,6 +14,7 @@ export default ({ App, render }) => {
     <html {...helmet.htmlAttributes.toComponent()}>
       <head>
         <meta charSet='utf8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link href='https://fonts.googleapis.com/css?family=Ubuntu:300,400,700' rel='stylesheet' />
         {helmet.meta.toComponent()}
         {helmet.title.toComponent()}
