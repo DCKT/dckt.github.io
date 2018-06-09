@@ -1,3 +1,7 @@
+open BsReactNative;
+
+open Helpers;
+
 let component = "Socials" |> ReasonReact.statelessComponent;
 
 module Styles = {
@@ -14,18 +18,35 @@ module Styles = {
   let socialImage = style([width(px(55))]);
 };
 
+let styles =
+  StyleSheet.create(
+    Style.(
+      {
+        "root":
+          style([
+            flex(1.0),
+            flexDirection(Row),
+            alignItems(Center),
+            justifyContent(Center),
+          ]),
+      }
+    ),
+  );
+
 let make = _children => {
   ...component,
   render: _self =>
-    <div className=Styles.root>
+    <View style=styles##root>
       <a href="https://twitter.com/DCK__" className=Styles.link>
         <img className=Styles.socialImage src="/images/socials/twitter.svg" />
       </a>
-      <a href="https://twitter.com/DCK__" className=Styles.link>
+      <a href="https://github.com/DCKT" className=Styles.link>
         <img className=Styles.socialImage src="/images/socials/github.svg" />
       </a>
-      <a href="https://twitter.com/DCK__" className=Styles.link>
+      <a
+        href="https://www.linkedin.com/in/deconinckthomas/"
+        className=Styles.link>
         <img className=Styles.socialImage src="/images/socials/linkedin.svg" />
       </a>
-    </div>,
+    </View>,
 };

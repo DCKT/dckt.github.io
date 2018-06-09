@@ -1,23 +1,24 @@
+open BsReactNative;
+
 let component = "Container" |> ReasonReact.statelessComponent;
 
-module Styles = {
-  open Css;
-  let root =
-    style([
-      display(`flex),
-      flexWrap(`wrap),
-      maxWidth(px(960)),
-      alignItems(`center),
-      margin(`auto),
-    ]);
-};
+let styles =
+  StyleSheet.create(
+    Style.(
+      {
+        "root":
+          style([
+            flex(1.),
+            flexWrap(Wrap),
+            maxWidth(Pt(960.)),
+            alignItems(Center),
+            margin(Auto),
+          ]),
+      }
+    ),
+  );
 
 let make = children => {
   ...component,
-  render: _self =>
-    ReasonReact.createDomElement(
-      "div",
-      ~props={"className": Styles.root},
-      children,
-    ),
+  render: _self => <View style=styles##root> ...children </View>,
 };

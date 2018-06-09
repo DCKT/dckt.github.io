@@ -18,21 +18,20 @@ import ErrorPage from './lib/es6/src/scenes/ErrorPage'
 
 const routes = () => (
   <Router history={browserHistory}>
-    <Route path="/" component={withPhenomicApi(Home.jsComponent, Home.queries)} />
-    <Route path="/after/:after" component={withPhenomicApi(Home.jsComponent, Home.queries)} />
-    <Route path="blog/*" component={withPhenomicApi(Post.jsComponent, Post.queries)} />
-    <Route path="*" component={ErrorPage} />
-    <Route path="404.html" component={ErrorPage} />
+    <Route path='/' component={withPhenomicApi(Home.jsComponent, Home.queries)} />
+    <Route path='/after/:after' component={withPhenomicApi(Home.jsComponent, Home.queries)} />
+    <Route path='blog/*' component={withPhenomicApi(Post.jsComponent, Post.queries)} />
+    <Route path='*' component={ErrorPage} />
+    <Route path='404.html' component={ErrorPage} />
   </Router>
 )
 
 const render = (rootComponent, rootTag) => {
-  AppRegistry.registerComponent("App", () => () => rootComponent);
-  AppRegistry.runApplication("App", { rootTag });
-};
+  AppRegistry.registerComponent('App', () => () => rootComponent)
+  AppRegistry.runApplication('App', { rootTag })
+}
 
-export default createApp(routes, render);
-
+export default createApp(routes, render)
 
 if (module.hot) {
   module.hot.accept(() => renderApp(routes))

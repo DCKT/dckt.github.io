@@ -20,10 +20,18 @@ let styles =
     ),
   );
 
-let make = (~value: string, _children) => {
+let make = (~value: string, ~textColor: option(string)=?, _children) => {
   ...component,
-  render: _self =>
+  render: _self => {
+    let textColor =
+      switch (textColor) {
+      | None => Style.style([])
+      | Some(c) => Style.(style([color(String(c))]))
+      };
     <View style=styles##root>
-      <Text style=styles##title> (value |> text) </Text>
-    </View>,
+      <Text style=(Style.flatten([|styles##title, textColor|]))>
+        (value |> text)
+      </Text>
+    </View>;
+  },
 };

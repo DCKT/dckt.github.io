@@ -32,7 +32,9 @@
     "deploy": "npm run build:web && gh-pages -d dist"
   },
   "phenomic": {
-    "presets": ["@phenomic/preset-react-app"]
+    "presets": [
+      "@phenomic/preset-react-app"
+    ]
   },
   "version": "1.0.0-beta.3",
   "dependencies": {

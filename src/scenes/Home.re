@@ -25,10 +25,11 @@ let make = (~informations) => {
                 <SectionTitle value="Bonjour !" />
                 <PhenomicPresetReactApp.BodyRenderer body=infos##body />
                 <Socials />
+                <SocialLink href="https://github.com/DCKT" />
               </div>
             </Section>
             <Section dark=true>
-              <SectionTitle value={js|Expériences|js} />
+              <SectionTitle textColor="#fff" value={js|Expériences|js} />
               <section id="cd-timeline" className="cd-container">
                 (
                   infos##experiences
@@ -46,17 +47,15 @@ let make = (~informations) => {
             <Section>
               <SectionTitle value={js|Compétences|js} />
               <Container>
-                (
-                  infos##technologies
-                  |> Array.mapi((i, value) =>
-                       <Tag key=(string_of_int(i)) value color="#e66815" />
-                     )
-                  |> ReasonReact.arrayToElement
-                )
+                <TagsList
+                  tags=infos##technologies
+                  textColor=(Some("#fff"))
+                  backgroundColor=(Some("#e66815"))
+                />
               </Container>
             </Section>
             <Section dark=true>
-              <SectionTitle value={js|Diplômes|js} />
+              <SectionTitle textColor="#fff" value={js|Diplômes|js} />
               <section
                 id="cd-timeline" className="cd-container Qualifications">
                 (
