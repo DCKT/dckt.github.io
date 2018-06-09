@@ -21,5 +21,5 @@ let styles =
 
 let make = children => {
   ...component,
-  render: _self => <View style=styles##root> children </View>,
+  render: _self => <View style=styles##root> ...children </View>,
 };

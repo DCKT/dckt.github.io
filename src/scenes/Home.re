@@ -24,8 +24,20 @@ let make = (~informations) => {
               <div className="dck-Hello">
                 <SectionTitle value="Bonjour !" />
                 <PhenomicPresetReactApp.BodyRenderer body=infos##body />
-                <Socials />
-                <SocialLink href="https://github.com/DCKT" />
+                <SocialsContainer>
+                  <SocialLink
+                    href="https://twitter.com/DCK__"
+                    imageSource="/images/socials/twitter.svg"
+                  />
+                  <SocialLink
+                    href="https://github.com/DCKT"
+                    imageSource="/images/socials/github.svg"
+                  />
+                  <SocialLink
+                    href="https://www.linkedin.com/in/deconinckthomas/"
+                    imageSource="/images/socials/linkedin.svg"
+                  />
+                </SocialsContainer>
               </div>
             </Section>
             <Section dark=true>
