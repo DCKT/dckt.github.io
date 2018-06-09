@@ -15,6 +15,7 @@ let styles =
             alignItems(Center),
             height(Pt(600.)),
             paddingVertical(Pt(100.)),
+            backgroundColor(String("#333")),
           ]),
       }
     ),
