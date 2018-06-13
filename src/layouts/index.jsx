@@ -3,6 +3,8 @@ import Helmet from "react-helmet";
 import config from "../../data/SiteConfig";
 import "./index.css";
 
+require("prismjs/themes/prism-tomorrow.css");
+
 export default class MainLayout extends React.Component {
   getLocalTitle() {
     function capitalize(string) {
@@ -14,13 +16,13 @@ export default class MainLayout extends React.Component {
       .replace("/", "");
     let title = "";
     if (currentPath === "") {
-      title = "Home";
+      title = "Accueil";
     } else if (currentPath === "tags/") {
       title = "Tags";
     } else if (currentPath === "categories/") {
       title = "Categories";
     } else if (currentPath === "about/") {
-      title = "About";
+      title = "À propos";
     } else if (currentPath.includes("posts")) {
       title = "Article";
     } else if (currentPath.includes("tags/")) {

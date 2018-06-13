@@ -1,19 +1,18 @@
 module.exports = {
   blogPostDir: "posts", // The name of directory that contains your posts.
   blogAuthorDir: "authors", // The name of directory that contains your 'authors' folder.
-  blogAuthorId: "casper", // The default and fallback author ID used for blog posts without a defined author.
+  blogAuthorId: "dck", // The default and fallback author ID used for blog posts without a defined author.
   siteTitle: "Thomas Deconinck - Développeur", // Site title.
   siteTitleAlt: "Thomas Deconinck - Développeur JavaScript", // Alternative site title for SEO.
-  siteLogo:
-    "https://haysclark.github.io/gatsby-starter-casper/logos/logo-1024.png", // Logo used for SEO and manifest. e.g. "/logos/logo-1024.png",
-  siteUrl: "https://haysclark.github.io", // Domain of your website without pathPrefix.
+  siteLogo: "/images/me.jpg", // Logo used for SEO and manifest. e.g. "/logos/logo-1024.png",
+  siteUrl: "https://dckt.github.io", // Domain of your website without pathPrefix.
   pathPrefix: "/gatsby-starter-casper", // Prefixes all links. For cases when deployed to example.github.io/gatsby-starter-casper/.
   siteDescription:
     "Développeur curieux, passionné du web et de ses technologies. Fan de JavaScript et ReasonML", // Website description used for RSS feeds/meta description tag.
-  siteCover: "https://dckt.github.io/gatsby-starter-casper/images/header.jpg", // Optional, the cover image used in header for home page. e.g: "/images/blog-cover.jpg",
+  siteCover: "/images/blog-cover.jpg", // Optional, the cover image used in header for home page. e.g: "/images/blog-cover.jpg",
   siteNavigation: true, // If navigation is enabled the Menu button will be visible
   siteRss: "/rss.xml", // Path to the RSS file.
-  siteRssAuthor: "Casper User", // The author name used in the RSS file
+  siteRssAuthor: "Thomas Deconinck", // The author name used in the RSS file
   // siteFBAppID: "1825356251115265", // optional, sets the FB Application ID for using app insights
   sitePaginationLimit: 10, // The max number of posts per page.
   googleAnalyticsID: "UA-111982167-1", // GA tracking ID.

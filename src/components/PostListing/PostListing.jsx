@@ -29,7 +29,8 @@ const getPostList = (postEdges, authorEdges) =>
 class PostListing extends React.Component {
   render() {
     const postList = getPostList(this.props.postEdges, this.props.postAuthors);
-
+    console.log(this.props.postAuthors);
+    console.log(postList);
     return (
       <div>
         {/* This is the post loop - each post will be output using this markup */}
