@@ -1,6 +1,7 @@
 {
   "name": "gatsby-starter-casper",
-  "description": "GatsbyJS starter that themed with the Casper theme from Ghost.",
+  "description":
+    "GatsbyJS starter that themed with the Casper theme from Ghost.",
   "version": "1.0.7",
   "author": "Hays Clark <hays.clark@gmail.com>",
   "dependencies": {
@@ -63,23 +64,20 @@
     "stylelint-config-standard": "^17.0.0",
     "write-good": "^0.11.3"
   },
-  "keywords": [
-    "gatsby",
-    "blog",
-    "casper",
-    "starter"
-  ],
+  "keywords": ["gatsby", "blog", "casper", "starter"],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
     "develop": "gatsby develop",
     "serve": "gatsby serve",
     "build": "gatsby build",
-    "build:pp": "nm run reason:build && gatsby build --prefix-paths",
-    "build:gh": "npm run clean && npm run build:pp && gh-pages -d public",
+    "build:pp": "npm run reason:build && gatsby build --prefix-paths",
+    "build:gh":
+      "npm run clean && npm run build:pp && npm run copy-cname && gh-pages -d public",
     "clean": "rm -rf .cache && rm -rf public",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:md",
-    "lint:js": "eslint --ext .js,.jsx --ignore-pattern public --ignore-pattern static .",
+    "lint:js":
+      "eslint --ext .js,.jsx --ignore-pattern public --ignore-pattern static .",
     "lint:css": "stylelint --fix 'src/**/*.css'",
     "lint:md": "remark content/posts/",
     "write-good": "write-good $(glob 'content/posts/**/*.md')",
@@ -87,11 +85,10 @@
     "release": "standard-version -a",
     "reason:build": "bsb -make-world",
     "reason:watch": "bsb -make-world -w",
-    "reason:clean": "bsb -clean-world"
+    "reason:clean": "bsb -clean-world",
+    "copy-cname": "cp CNAME public/"
   },
   "remarkConfig": {
-    "plugins": [
-      "remark-preset-lint-recommended"
-    ]
+    "plugins": ["remark-preset-lint-recommended"]
   }
 }
