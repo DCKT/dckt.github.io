@@ -13,8 +13,8 @@
       "path---tags-no-cover-d9f2569158427b54341e.js.map"
     ],
     "component---src-layouts-index-jsx": [
-      "component---src-layouts-index-jsx-72fe94e4aaa097f4015a.js",
-      "component---src-layouts-index-jsx-72fe94e4aaa097f4015a.js.map"
+      "component---src-layouts-index-jsx-a6d7fd26d7eab97c6cc6.js",
+      "component---src-layouts-index-jsx-a6d7fd26d7eab97c6cc6.js.map"
     ],
     "component---node-modules-gatsby-plugin-offline-app-shell-js": [
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js",
@@ -29,8 +29,8 @@
       "path---index-bb54c757affe43f05667.js.map"
     ],
     "component---src-pages-about-jsx": [
-      "component---src-pages-about-jsx-16dca089dee574aef9ce.js",
-      "component---src-pages-about-jsx-16dca089dee574aef9ce.js.map"
+      "component---src-pages-about-jsx-afe0ec53c948618633ce.js",
+      "component---src-pages-about-jsx-afe0ec53c948618633ce.js.map"
     ],
     "path---author-dck": [
       "path---author-dck-73b5136d7e971a64cab7.js",
@@ -45,9 +45,9 @@
       "component---src-templates-author-jsx-d9dcb651194ebdae2ab7.js.map"
     ],
     "commons": [
-      "commons-edd8fe7b08e78114a6e4.js",
+      "commons-1fd3bbb2b61679125a72.js",
       "build-js-styles.css",
-      "commons-edd8fe7b08e78114a6e4.js.map",
+      "commons-1fd3bbb2b61679125a72.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-templates-tag-jsx": [
@@ -55,21 +55,21 @@
       "component---src-templates-tag-jsx-20e23471da3d1e948797.js.map"
     ],
     "component---src-templates-index-jsx": [
-      "component---src-templates-index-jsx-0c345ce44bbdaeb0ab1d.js",
-      "component---src-templates-index-jsx-0c345ce44bbdaeb0ab1d.js.map"
+      "component---src-templates-index-jsx-bd0e151018379c1c6266.js",
+      "component---src-templates-index-jsx-bd0e151018379c1c6266.js.map"
     ],
     "path---offline-plugin-app-shell-fallback": [
       "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js",
       "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js.map"
     ],
     "component---src-templates-post-jsx": [
-      "component---src-templates-post-jsx-3641f27e295dfa57db97.js",
-      "component---src-templates-post-jsx-3641f27e295dfa57db97.js.map"
+      "component---src-templates-post-jsx-fd8280ee2f77468a3d71.js",
+      "component---src-templates-post-jsx-fd8280ee2f77468a3d71.js.map"
     ],
     "app": [
-      "app-aadbe6632eb6835c2708.js",
+      "app-37c0d627f982aab14e43.js",
       "build-js-styles.css",
-      "app-aadbe6632eb6835c2708.js.map",
+      "app-37c0d627f982aab14e43.js.map",
       "build-js-styles.css.map"
     ],
     "path---tags-huge": [
