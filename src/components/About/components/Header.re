@@ -8,8 +8,8 @@ module Styles = {
       display(`flex),
       justifyContent(center),
       alignItems(center),
-      height(pct(98.5)),
-      backgroundImage(url("/images/header.jpg")),
+      height(px(600)),
+      backgroundImage(url("/images/blog-cover.jpg")),
       backgroundSize(cover),
       backgroundPosition(pct(50.), pct(50.)),
       selector(
@@ -38,7 +38,8 @@ module Styles = {
     style([
       display(block),
       margin2(~v=px(10), ~h=`auto),
-      maxWidth(px(300)),
+      width(px(300)),
+      height(px(300)),
       borderRadius(pct(100.)),
       border(px(5), solid, hex("fff")),
       boxShadow(~x=px(0), ~y=px(2), rgba(24, 24, 24, 0.5)),

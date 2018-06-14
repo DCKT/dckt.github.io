@@ -61,3 +61,4 @@ bundle-stats.json
 .merlin
 lib/
 *.bs.js
+.DS_Store
