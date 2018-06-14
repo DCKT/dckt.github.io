@@ -2,7 +2,11 @@ let component = "About" |> ReasonReact.statelessComponent;
 
 let make = _children => {
   ...component,
-  render: _self => <div> <Header /></div>,
+  render: _self =>
+    <div>
+      <Header />
+      <Section> <SectionTitle value="Hello" /> </Section>
+    </div>,
 };
 
 let default =
