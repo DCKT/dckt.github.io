@@ -1,0 +1,101 @@
+let component = "TimelineItem" |> ReasonReact.statelessComponent;
+
+module Styles = {
+  open Css;
+  let tag =
+    style([
+      padding2(~v=px(5), ~h=px(10)),
+      marginRight(px(5)),
+      backgroundColor(hex("75ce66")),
+      color(hex("fff")),
+      borderRadius(px(2)),
+      marginBottom(px(5)),
+    ]);
+};
+
+type icon =
+  | Code
+  | Graduation;
+
+let make = (~item: Types.timelineItem, ~icon: icon, _children) => {
+  ...component,
+  render: _self =>
+    <div className="cd-timeline-block">
+      <div className="cd-timeline-img cd-picture">
+        (
+          switch (icon) {
+          | Code => <img src="images/code.svg" alt="Code" />
+          | Graduation => <img src="images/graduation.svg" alt="Graduation" />
+          }
+        )
+      </div>
+      <div className="cd-timeline-content">
+        <h2>
+          (
+            switch (item) {
+            | QuaPost(t) =>
+              <span className="Works-itemTitle">
+                (t##title |> ReasonReact.string)
+              </span>
+            | ExpPost(t) =>
+              <span className="Works-itemTitle">
+                (t##title |> ReasonReact.string)
+              </span>
+            }
+          )
+          (
+            switch (item) {
+            | QuaPost(_) => nothing
+            | ExpPost(t) =>
+              <span className="Works-itemCompany">
+                (t##company |> ReasonReact.string)
+              </span>
+            }
+          )
+          (
+            switch (item) {
+            | QuaPost(t) =>
+              <span className="Works-itemPlace">
+                (t##location |> ReasonReact.string)
+              </span>
+            | ExpPost(t) =>
+              <span className="Works-itemPlace">
+                (t##location |> ReasonReact.string)
+              </span>
+            }
+          )
+        </h2>
+        (
+          switch (item) {
+          | QuaPost(t) => <p> (t##description |> ReasonReact.string) </p>
+          | ExpPost(t) => <p> (t##description |> ReasonReact.string) </p>
+          }
+        )
+        (
+          switch (item) {
+          | QuaPost(_) => nothing
+          | ExpPost(t) =>
+            <div className="Works-itemTech">
+              (
+                t##technologies
+                |> Array.mapi((i, t) =>
+                     <span key=(string_of_int(i)) className=Styles.tag>
+                       (t |> ReasonReact.string)
+                     </span>
+                   )
+                |> ReasonReact.arrayToElement
+              )
+            </div>
+          }
+        )
+        (
+          switch (item) {
+          | QuaPost(t) =>
+            <span className="cd-date"> (t##date |> ReasonReact.string) </span>
+          | ExpPost(t) =>
+            <span className="cd-date"> (t##date |> ReasonReact.string) </span>
+          }
+        )
+      </div>
+    </div>,
+};

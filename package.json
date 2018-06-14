@@ -6,6 +6,7 @@
   "dependencies": {
     "babel-eslint": "^8.1.2",
     "babel-plugin-lodash": "^3.2.11",
+    "bs-css": "7.0.1",
     "classnames": "^2.2.5",
     "gatsby": "^1.9.130",
     "gatsby-link": "^1.6.31",
@@ -40,9 +41,11 @@
     "react-scroll": "^1.7.3",
     "react-share": "^1.15.1",
     "react-social-icons": "^2.7.0",
-    "react-twitter-widgets": "^1.4.0"
+    "react-twitter-widgets": "^1.4.0",
+    "reason-react": "0.4.2"
   },
   "devDependencies": {
+    "bs-platform": "3.1.5",
     "cli-glob": "^0.1.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.2",
@@ -72,7 +75,7 @@
     "develop": "gatsby develop",
     "serve": "gatsby serve",
     "build": "gatsby build",
-    "build:pp": "gatsby build --prefix-paths",
+    "build:pp": "nm run reason:build && gatsby build --prefix-paths",
     "build:gh": "npm run clean && npm run build:pp && gh-pages -d public",
     "clean": "rm -rf .cache && rm -rf public",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:md",
@@ -81,7 +84,10 @@
     "lint:md": "remark content/posts/",
     "write-good": "write-good $(glob 'content/posts/**/*.md')",
     "format:js": "prettier '**/*.{js,jsx}' --write",
-    "release": "standard-version -a"
+    "release": "standard-version -a",
+    "reason:build": "bsb -make-world",
+    "reason:watch": "bsb -make-world -w",
+    "reason:clean": "bsb -clean-world"
   },
   "remarkConfig": {
     "plugins": [

@@ -1,0 +1,23 @@
+{
+  "name": "thomasdeconinck",
+  "reason": {
+    "react-jsx": 2
+  },
+  "bsc-flags": ["-bs-super-errors"],
+  "bs-dependencies": ["reason-react", "bs-css"],
+  "package-specs": [
+    {
+      "module": "commonjs",
+      "in-source": true
+    }
+  ],
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    }
+  ],
+  "suffix": ".bs.js",
+  "namespace": true,
+  "refmt": 3
+}
