@@ -2,13 +2,15 @@ import React from "react";
 import moment from "moment";
 import "./PostDate.css";
 
+moment.locale("fr");
+
 class PostDate extends React.Component {
   render() {
     const { date } = this.props;
     return (
       <time
         className="post-date"
-        dateTime={moment(new Date(date)).format("YYYY-MM-DD")}
+        dateTime={moment(new Date(date)).format("DD-MM-YYYY")}
       >
         {moment(new Date(date)).format("DD MMMM YYYY")}
       </time>

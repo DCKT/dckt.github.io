@@ -5,7 +5,7 @@ module.exports = {
   siteTitle: 'Thomas Deconinck - Développeur', // Site title.
   siteTitleAlt: 'Thomas Deconinck - Développeur JavaScript', // Alternative site title for SEO.
   siteLogo: '/images/me.jpg', // Logo used for SEO and manifest. e.g. "/logos/logo-1024.png",
-  siteUrl: 'https://dckt.github.io', // Domain of your website without pathPrefix.
+  siteUrl: 'https://thomasdeconinck.fr', // Domain of your website without pathPrefix.
   pathPrefix: '/', // Prefixes all links. For cases when deployed to example.github.io/gatsby-starter-casper/.
   siteDescription: 'Développeur curieux, passionné du web et de ses technologies. Fan de JavaScript et ReasonML', // Website description used for RSS feeds/meta description tag.
   siteCover: '/images/blog-cover.jpg', // Optional, the cover image used in header for home page. e.g: "/images/blog-cover.jpg",

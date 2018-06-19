@@ -4,7 +4,7 @@ import Link from "gatsby-link";
 function GetNavList(config) {
   const NavList = [
     {
-      primaryText: "Home",
+      primaryText: "Accueil",
       // LeftIcon: <p>home</p>,
       component: Link,
       to: "/"
@@ -28,7 +28,7 @@ function GetNavList(config) {
   NavList.push({ divider: true });
 
   NavList.push({
-    primaryText: "About",
+    primaryText: "À propos",
     // LeftIcon: <FontIcon>person</FontIcon>,
     component: Link,
     to: "/about/"
