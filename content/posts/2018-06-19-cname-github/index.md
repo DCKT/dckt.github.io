@@ -3,7 +3,7 @@ title: "Utiliser un CNAME pour Github Page"
 category: "tips"
 date: "2018-06-19"
 slug: "cname-github-page"
-cover: "https://picsum.photos/1152/300/?image=811"
+cover: "https://picsum.photos/1152/500/?image=811"
 author: "dck"
 tags:
     - tips
