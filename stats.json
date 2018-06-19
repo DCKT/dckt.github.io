@@ -1,8 +1,8 @@
 {
   "assetsByChunkName": {
     "path---categories-tips": [
-      "path---categories-tips-e26a44d7ac721067aa78.js",
-      "path---categories-tips-e26a44d7ac721067aa78.js.map"
+      "path---categories-tips-ff2dad417cb59fbea4ae.js",
+      "path---categories-tips-ff2dad417cb59fbea4ae.js.map"
     ],
     "path---": [
       "path----557518bd178906f8d58a.js",
@@ -21,16 +21,16 @@
       "component---src-templates-category-jsx-3f9f38b2a16b22af9077.js.map"
     ],
     "path---index": [
-      "path---index-6acbe41ef251b299e214.js",
-      "path---index-6acbe41ef251b299e214.js.map"
+      "path---index-14c07358b1686e688c75.js",
+      "path---index-14c07358b1686e688c75.js.map"
     ],
     "component---src-pages-about-jsx": [
       "component---src-pages-about-jsx-afe0ec53c948618633ce.js",
       "component---src-pages-about-jsx-afe0ec53c948618633ce.js.map"
     ],
     "path---author-dck": [
-      "path---author-dck-deef77b78c92e7066586.js",
-      "path---author-dck-deef77b78c92e7066586.js.map"
+      "path---author-dck-5282f9f7d3e699cfc488.js",
+      "path---author-dck-5282f9f7d3e699cfc488.js.map"
     ],
     "component---src-templates-author-jsx": [
       "component---src-templates-author-jsx-d9dcb651194ebdae2ab7.js",
@@ -43,8 +43,8 @@
       "build-js-styles.css.map"
     ],
     "path---cname-github-page": [
-      "path---cname-github-page-5173154741f70ff31348.js",
-      "path---cname-github-page-5173154741f70ff31348.js.map"
+      "path---cname-github-page-b0832a105ea7ce8b94ef.js",
+      "path---cname-github-page-b0832a105ea7ce8b94ef.js.map"
     ],
     "component---src-templates-tag-jsx": [
       "component---src-templates-tag-jsx-20e23471da3d1e948797.js",
@@ -69,12 +69,12 @@
       "build-js-styles.css.map"
     ],
     "path---tags-tips": [
-      "path---tags-tips-6e20bd3900cb46c849fd.js",
-      "path---tags-tips-6e20bd3900cb46c849fd.js.map"
+      "path---tags-tips-abfc3007b88ef3325f4e.js",
+      "path---tags-tips-abfc3007b88ef3325f4e.js.map"
     ],
     "path---tags-github": [
-      "path---tags-github-0aa9263b9050a91aff5d.js",
-      "path---tags-github-0aa9263b9050a91aff5d.js.map"
+      "path---tags-github-94871c87bd30980fc44f.js",
+      "path---tags-github-94871c87bd30980fc44f.js.map"
     ],
     "path---about": [
       "path---about-a0e39f21c11f6a62c5ab.js",
