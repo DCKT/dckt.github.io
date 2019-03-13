@@ -3,25 +3,25 @@
   "version": "0.6.3",
   "license": "MIT",
   "scripts": {
-    "dev": "npm run js-watch | npm run bsb-watch",
-    "js-watch": "razzle start",
-    "bsb-watch": "bsb -make-world -w",
-    "clean": "bsb -clean-world && rm -rf build",
-    "build": "bsb -make-world && razzle build",
+    "dev": "npm run reason:build && razzle start",
+    "reason:watch": "bsb -make-world -w",
+    "reason:clean": "bsb -clean-world",
+    "reason:build": "bsb -make-world",
+    "build": "rm -rf build && npm run reason:clean && npm run reason:build && razzle build",
     "start": "NODE_ENV=production node build/server.js"
   },
   "dependencies": {
-    "bs-react-native": "^0.9.0",
+    "bs-react-native": "0.10.0",
     "compression": "^1.6.2",
     "express": "^4.15.2",
     "helmet": "^3.6.1",
     "hpp": "^0.2.2",
     "morgan": "^1.9.1",
-    "react": "^16.5.1",
-    "react-art": "^16.5.1",
-    "react-dom": "^16.5.1",
+    "react": "16.8.4",
+    "react-art": "16.8.4",
+    "react-dom": "16.8.4",
     "react-native-web": "^0.9.0",
-    "reason-react": "^0.5.3"
+    "reason-react": "0.6.0"
   },
   "devDependencies": {
     "bs-platform": "4.0.18",

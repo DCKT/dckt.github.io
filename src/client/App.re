@@ -12,6 +12,7 @@ let styles =
           paddingVertical(Pt(8.)),
           paddingHorizontal(Pt(16.)),
         ]),
+
       "link":
         style([
           paddingVertical(Pt(4.)),
@@ -25,29 +26,27 @@ let component = ReasonReact.statelessComponent("App");
 
 let make = (~route: Routes.t, _children) => {
   ...component,
-  render: _self =>
-    <View>
-      <View style=styles##navBar>
-        <View style=styles##link>
-          <TextLink route=Home> {ReasonReact.string("Home")} </TextLink>
-        </View>
-        <View style=styles##link>
-          <TextLink route={Greet(Some("Hello!"))}>
-            {ReasonReact.string("Greet")}
-          </TextLink>
-        </View>
+
+  render: _self => {
+    switch (route) {
+    | Home => <Home />
+    | Greet(greeting) => <Greet ?greeting />
+    | NotFound =>
+      <View>
+        <Text> {"404 - Route Not Found :(" |> ReasonReact.string} </Text>
       </View>
-      {
-        switch (route) {
-        | Home => <Home />
-        | Greet(greeting) => <Greet ?greeting />
-        | NotFound =>
-          <View>
-            <Text> {"404 - Route Not Found :(" |> ReasonReact.string} </Text>
-          </View>
-        }
-      }
-    </View>,
+    };
+  },
+  // </View>
+  //   </View>
+  //     </TextLink>
+  //       {ReasonReact.string("Greet")}
+  //     <TextLink route={Greet(Some("Hello!"))}>
+  //   <View style=styles##link>
+  //   </View>
+  //     <TextLink route=Home> {ReasonReact.string("Home")} </TextLink>
+  //   <View style=styles##link>
+  // <View style=styles##navBar>
 };
 
 let default =
